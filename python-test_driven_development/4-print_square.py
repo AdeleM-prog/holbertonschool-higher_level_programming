@@ -22,5 +22,8 @@ def print_square(size):
         for j in range(size):
             print("{}".format('#'), end="")
         print()
-    if size == None:
-        raise TypeError("print_square() missing 1 required positional argument: 'size'")
+    if size is None:
+        raise TypeError(
+            "print_square() missing 1"
+            "required positional argument:'size'"
+        )
