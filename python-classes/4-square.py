@@ -1,18 +1,21 @@
 #!/usr/bin/python3
-"""a class Square that defines a square"""
+"""no module included"""
 
 
 class Square:
+    """ a class square"""
     def __init__(self, size=0):
         self.size = size
-        """raises type erreor when not an integer
-        raises valueError if under
-        Private instance attribute
-        """
+    """property that calls a function like
+    an attribute"""
     @property
     def size(self):
         return self.__size
 
+    """raises type erreor when not an integer
+    raises valueError if under
+    Private instance attribute
+    """
     @size.setter
     def size(self, value):
         if not isinstance(value, int):
