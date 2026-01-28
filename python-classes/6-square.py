@@ -1,5 +1,8 @@
 #!/usr/bin/python3
-"""no module included"""
+"""
+Shebang - python3
+no module included
+"""
 
 
 class Square:
@@ -32,33 +35,40 @@ class Square:
     @size.setter
     def size(self, value):
         """
+        Method that modifies the private attribute
         raises type erreor when not an integer
-        raises valueError if under
+        raises valueError if under 0
         Private instance attribute
         """
         if not isinstance(value, int):
             raise TypeError("size must be an integer")
         if value < 0:
             raise ValueError("size must be >= 0")
-        """Private instance attribute"""
         self.__size = value
 
     @property
     def position(self):
         """
-        property that calls a function like
-        an attribute
+        Method that reads the attribute __position (private)
+        and returns it
         """
         return self.__position
 
     @position.setter
     def position(self, value):
         """
-        raises type erreor when not an integer
-        raises valueError if under
+        Method that modifies the private attribute
+        raises type erreor when not a tuple
+        Private instance attribute
         """
-        if not isinstance(value, tuple):
+        if (
+            not isinstance(value, tuple) or
+            len(value) != 2
+            or not all(isinstance(number, int) for number in value)
+            or not all(number >= 0 for number in value)
+        ):
             raise TypeError("position must be a tuple of 2 positive integers")
+        self.__position = value
 
     def area(self):
         """
@@ -70,10 +80,14 @@ class Square:
         """
         Public instance method that prints in stdout the square
         with the character #
+        if size is equal to 0, print an empty line
+
         """
         if self.size == 0:
-            print()
+            print("")
+        else:
+            for i in range(self.position[1]):
+                print("")
         for i in range(self.size):
             for j in range(self.size):
-                print("#", end="")
-            print()
+                print(" " * self.position[0] + "#" * self.size)
