@@ -73,6 +73,7 @@ class Square:
     def area(self):
         """
         Public instance method that returns the square area
+        which is self.__size * self.__size
         """
         return self.__size * self.__size
 
@@ -81,13 +82,13 @@ class Square:
         Public instance method that prints in stdout the square
         with the character #
         if size is equal to 0, print an empty line
-
+        the square is placed by " " * position[0] horizontally
+        and " " * position[1] vertically
         """
         if self.size == 0:
             print("")
         else:
             for i in range(self.position[1]):
                 print("")
-        for i in range(self.size):
             for j in range(self.size):
                 print(" " * self.position[0] + "#" * self.size)
