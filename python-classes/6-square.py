@@ -3,14 +3,29 @@
 
 
 class Square:
-    """ a class square"""
+    """
+    a class Square that defines a square by
+    Private instance attribute size
+    Private instance attribute position
+    Instantiation with optional size and optional position
+    Public instance method area that returns the square area
+    Public instance method my_print that prints the square with the character #
+    """
     def __init__(self, size=0, position=(0, 0)):
+        """
+        Initializing square
+        Arguments: size (size of the square)
+        position (tuple of 2 int for the position of the square)
+        Instantiation with optional size and optional position
+        """
         self.size = size
+        self.position = position
+
     @property
     def size(self):
         """
-        property that calls a function like
-        an attribute
+        Method that reads the attribute __size (private)
+        and returns it
         """
         return self.__size
 
