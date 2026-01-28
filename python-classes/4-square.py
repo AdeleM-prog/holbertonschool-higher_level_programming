@@ -1,8 +1,13 @@
 #!/usr/bin/python3
 """a class Square that defines a square"""
 
+
 class Square:
     def __init__(self, size=0):
+        """raises type erreor when not an integer
+        raises valueError if under
+        Private instance attribute
+        """
         if not isinstance(size, int):
             raise TypeError("size must be an integer")
         if size < 0:
