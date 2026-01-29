@@ -9,6 +9,9 @@ class Rectangle:
     Private instance attribute height
     Instantiation with optional width and optional height
     """
+
+    number_of_instances = 0
+
     def __init__(self, width=0, height=0):
         """
         Initializing rectangle
@@ -18,6 +21,7 @@ class Rectangle:
         """
         self.width = width
         self.height = height
+        Rectangle.number_of_instances += 1
 
     @property
     def width(self):
@@ -64,13 +68,39 @@ class Rectangle:
         self.__height = value
 
     def area(self):
-        """Public instance method
-        that returns the current rectangle area"""
-        return self.__width * self.height
+        """ Public instance method
+        that returns the current rectangle area
+        """
+        return self.__width * self.__height
 
     def perimeter(self):
-        """Public instance method
-        that returns the current rectangle perimeter"""
-        if self.__width == 0 or self.__height == 0:
+        """ Public instance method
+        that returns the current rectangle perimeter
+        """
+        if self.width == 0 or self.height == 0:
             return 0
-        return (self.__width + self.__height) * 2
+        else:
+            return (self.width + self.height) * 2
+
+    def __str__(self):
+        """ Public instance method
+        that returns the string of the current rectangle
+        """
+        if self.width == 0 or self.height == 0:
+            return ""
+        else:
+            return (("#" * self.width + "\n") * self.height)[:-1]
+
+    def __repr__(self):
+        """ Public instance method
+        that returns a string representation of the rectangle
+        """
+        return "Rectangle({}, {})".format(self.width, self.height)
+
+    def __del__(self):
+        """ Public instance method
+        that prints a string when an instance Rectangle
+        is deleted
+        """
+        Rectangle.number_of_instances -= 1
+        print("Bye rectangle...")
