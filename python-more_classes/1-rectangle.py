@@ -1,4 +1,5 @@
 #!/usr/bin/python3
+""" no module included"""
 
 
 class Rectangle:
@@ -30,7 +31,7 @@ class Rectangle:
     def width(self, value):
         """
         Method that modifies the private attribute
-        raises type erreor when not an integer
+        raises TypeError when not an integer
         raises valueError if under 0
         Private instance attribute
         """
@@ -52,7 +53,7 @@ class Rectangle:
     def height(self, value):
         """
         Method that modifies the private attribute
-        raises type erreor when not an integer
+        raises TypeError when not an integer
         raises valueError if under 0
         Private instance attribute
         """
