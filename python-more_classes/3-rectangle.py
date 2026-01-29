@@ -66,19 +66,20 @@ class Rectangle:
     def area(self):
         """Public instance method
         that returns the current rectangle area"""
-        return self.__width * self.height
+        return self.__width * self.__height
 
     def perimeter(self):
         """Public instance method
         that returns the current rectangle perimeter"""
-        if self.__width == 0 or self.__height == 0:
-            self.perimeter = 0
-        return (self.__width + self.__height) * 2
+        if self.width == 0 or self.height == 0:
+            return 0
+        else:
+            return (self.width + self.height) * 2
 
     def __str__(self):
         """Public instance method
         that returns the string of the current rectangle"""
-        if self.__width == 0 or self.__height == 0:
-            return "#" * 0
+        if self.width == 0 or self.height == 0:
+            return ""
         else:
-            return str(("#" * self.__width) * self.__height)
+            return str(("#" * self.width) * self.height)[:-1]
