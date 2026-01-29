@@ -2,17 +2,38 @@
 
 
 class Rectangle:
-
+    """
+    a class Square that defines a rectangle by
+    Private instance attribute width
+    Private instance attribute height
+    Instantiation with optional width and optional height
+    """
     def __init__(self, width=0, height=0):
+        """
+        Initializing rectangle
+        Arguments: width (width of the rectangle)
+        height (height of the rectangle)
+        Instantiation with optional width and optional height
+        """
         self.width = width
         self.height = height
-    
+
     @property
     def width(self):
+        """
+        Method that reads the attribute __width (private)
+        and returns it
+        """
         return self.__width
 
     @width.setter
     def width(self, value):
+        """
+        Method that modifies the private attribute
+        raises type erreor when not an integer
+        raises valueError if under 0
+        Private instance attribute
+        """
         if not isinstance(value, int):
             raise TypeError("width must be an integer")
         if value < 0:
@@ -21,10 +42,20 @@ class Rectangle:
 
     @property
     def height(self):
+        """
+        Method that reads the attribute __height (private)
+        and returns it
+        """
         return self.__height
-    
+
     @height.setter
     def height(self, value):
+        """
+        Method that modifies the private attribute
+        raises type erreor when not an integer
+        raises valueError if under 0
+        Private instance attribute
+        """
         if not isinstance(value, int):
             raise TypeError("height must be an integer")
         if value < 0:
