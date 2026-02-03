@@ -46,7 +46,6 @@ class Square(Rectangle):
     the area() method must be implemented
     print() should print, and str() should return, the square description
     """
-
     def __init__(self, size):
         super().integer_validator("size", size)
         self.__size = size
@@ -54,3 +53,6 @@ class Square(Rectangle):
 
     def area(self):
         return self.__size * self.__size
+
+    def __str__(self):
+        return "[Square] {}/{}".format(self.__size, self.__size)

@@ -14,9 +14,10 @@ class BaseGeometry:
 
     def integer_validator(self, name, value):
         if type(value) is not int:
-                raise TypeError(f"{name} must be an integer")
+            raise TypeError(f"{name} must be an integer")
         if value <= 0:
             raise ValueError(f"{name} must be greater than 0")
+
 
 class Rectangle(BaseGeometry):
     """ Instantiation with width and height
@@ -32,6 +33,6 @@ class Rectangle(BaseGeometry):
 
     def area(self):
         return self.__height * self.__width
-        
+
     def __str__(self):
         return "[Rectangle] {}/{}".format(self.__width, self.__height)
