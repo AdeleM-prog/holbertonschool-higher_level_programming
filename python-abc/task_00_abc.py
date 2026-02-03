@@ -1,18 +1,19 @@
 #!/usr/bin/python3
 
-from abc import ABC
+from abc import ABC, abstractmethod
 
-class Animal:
+class Animal(ABC):
 
     @abstractmethod
     def sound(self):
+        pass
 
 class Dog(Animal):
 
-    super.sound(Animal, Dog)
-        return "Bark"
+        def sound(self):
+            return "Bark"
 
 class Cat(Animal):
 
-    super.sound(Cat)
+    def sound (self):
         return "Meow"
