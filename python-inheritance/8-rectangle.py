@@ -1,12 +1,11 @@
 #!/usr/bin/python3
-"""no module imported"""
+"""This module defines a base geometry class with validation helpers."""
 
 
 class BaseGeometry:
     """
-    Public instance method
-    that raises an Exception with the message area()
-    is not implemented
+    Public instance method that raises an Exception
+    with the message 'area() is not implemented'
     Public instance method that validates value
     """
     def area(self):
