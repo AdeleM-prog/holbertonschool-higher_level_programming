@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-""" the module defines BaseGeometry class"""
+"""This module defines a base geometry class with validation helpers."""
 
 
 class BaseGeometry:
