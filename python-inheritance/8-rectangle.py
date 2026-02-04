@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""This module defines a base geometry class with validation helpers."""
+BaseGeometry = __import__('7-base_geometry').BaseGeometry
 
 
 class BaseGeometry:
@@ -8,6 +8,7 @@ class BaseGeometry:
     with the message 'area() is not implemented'
     Public instance method that validates value
     """
+
     def area(self):
         raise Exception("area() is not implemented")
 
