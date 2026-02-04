@@ -1,5 +1,8 @@
 #!/usr/bin/python3
 
+"""
+This module defines the class Rectangle.
+"""
 BaseGeometry = __import__('7-base_geometry').BaseGeometry
 
 
