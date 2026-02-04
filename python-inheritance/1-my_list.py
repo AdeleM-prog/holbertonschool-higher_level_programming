@@ -1,5 +1,8 @@
 #!/usr/bin/python3
-""" no module added"""
+"""
+This module defines a class that prints list behavior
+with a sorted method
+"""
 
 
 class MyList(list):
