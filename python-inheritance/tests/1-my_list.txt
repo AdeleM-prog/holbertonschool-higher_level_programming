@@ -1,124 +1,39 @@
-This file contains doctests for the MyList class.
+>>> MyList = __import__('1-my_list').MyList
 
-> MyList = __import__('1-my_list').MyList
-> 
-> # Inheritance checks
-> >>> issubclass(MyList, list)
-> True
-> >>> MyList.__mro__[1] is list
-> True
-> 
-> # Method availability
-> >>> "print_sorted" in dir(MyList)
-> True
-> >>> "print_sorted" in dir(list)
-> False
-> >>> "append" in dir(MyList)
-> True
-> 
-> # Instantiation
-> >>> my_list = MyList()
-> >>> isinstance(my_list, list)
-> True
-> >>> isinstance(my_list, MyList)
-> True
-> >>> type(my_list) == MyList
-> True
-> >>> type(my_list) == list
-> False
-> 
-> # Empty list
-> >>> my_list.print_sorted()
-> []
-> >>> print(my_list)
-> []
-> >>> len(my_list)
-> 0
-> 
-> # Adding element
-> >>> my_list.append(33)
-> >>> my_list[-1]
-> 33
-> >>> my_list.append(32)
-> >>> my_list.append(31)
-> >>> len(my_list)
-> 3
-> >>> my_list[-1]
-> 31
-> >>> my_list[0]
-> 33
-> >>> my_list
-> [33, 32, 31]
-> >>> my_list.print_sorted()
-> [31, 32, 33]
-> >>> print(my_list)
-> [33, 32, 31]
-> 
-> #type comparison
-> >>> same_list = [33, 32, 31]
-> >>> isinstance(my_list, type(same_list))
-> True
-> >>> my_list == same_list
-> True
-> >>> isinstance(same_list, type(my_list))
-> False
-> 
-> # Single element
-> >>> one = MyList([7])
-> >>> one.print_sorted()
-> [7]
-> >>> print(one)
-> [7]
-> 
-> # Basic example (must not modify original list)
-> >>> my_list = MyList([1, 4, 2, 3, 5])
-> >>> my_list
-> [1, 4, 2, 3, 5]
-> >>> my_list.print_sorted()
-> [1, 2, 3, 4, 5]
-> >>> print(my_list)
-> [1, 4, 2, 3, 5]
-> 
-> # Already sorted
-> >>> sorted_list = MyList([1, 2, 3])
-> >>> sorted_list.print_sorted()
-> [1, 2, 3]
-> >>> print(sorted_list)
-> [1, 2, 3]
-> 
-> # Reverse sorted
-> >>> rev = MyList([5, 4, 3, 2, 1])
-> >>> rev.print_sorted()
-> [1, 2, 3, 4, 5]
-> >>> print(rev)
-> [5, 4, 3, 2, 1]
-> 
-> # Duplicates
-> >>> dup = MyList([3, 1, 2, 3, 1])
-> >>> dup.print_sorted()
-> [1, 1, 2, 3, 3]
-> >>> print(dup)
-> [3, 1, 2, 3, 1]
-> 
-> # Negatives
-> >>> neg = MyList([0, -2, 5, -1])
-> >>> neg.print_sorted()
-> [-2, -1, 0, 5]
-> >>> print(neg)
-> [0, -2, 5, -1]
-> 
-> # Other element types (outside the project assumption: "all int")
-> 
-> # Floats
-> >>> floats = MyList([3.14, 2.71, -1.0, 0.0])
-> >>> floats.print_sorted()
-> [-1.0, 0.0, 2.71, 3.14]
-> >>> floats
-> [3.14, 2.71, -1.0, 0.0]
-> 
-> # Bools (comparable: False < True)
-> >>> bools = MyList([True, False, True, False])
-> >>> bools.print_sorted()
-> [False, False, True, True]
-> >>> bools
-> [True, False, True, False]
+>>> my_list = MyList()
+
+>>> print(my_list)
+[]
+
+>>> my_list.print_sorted()
+[]
+>>>
+
+>>> my_list.append(1)
+>>> print(my_list)
+[1]
+
+>>> my_list.append(4)
+>>> print(my_list)
+[1, 4]
+
+>>> my_list.append(2)
+>>> print(my_list)
+[1, 4, 2]
+
+>>> my_list.append(3)
+>>> print(my_list)
+[1, 4, 2, 3]
+
+>>> my_list.append(5)
+>>> print(my_list)
+[1, 4, 2, 3, 5]
+
+>>> print(my_list)
+[1, 4, 2, 3, 5]
+
+>>> my_list.print_sorted()
+[1, 2, 3, 4, 5]
+
+>>> print(my_list)
+[1, 4, 2, 3, 5]
