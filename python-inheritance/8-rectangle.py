@@ -19,12 +19,17 @@ class BaseGeometry:
 
 
 class Rectangle(BaseGeometry):
-    """ Instantiation with width and height
-    width and height must be private.
-    width and height must be positive integers,
-    validated by integer_validator
     """
+    class initiating a rectangle
+    """
+
     def __init__(self, width, height):
+        """
+        Instantiation with width and height
+        width and height must be private.
+        width and height must be positive integers,
+        validated by integer_validator
+        """
         super().integer_validator("width", width)
         super().integer_validator("height", height)
         self.__width = width
