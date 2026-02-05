@@ -17,6 +17,9 @@ class VerboseList(list):
     def pop(self, idx=None):
         if idx is None:
             idx = -1
+        try:
+            value = self[idx]
+        except IndexError:
+                raise
         print(f"Popped [{self[idx]}] from the list.")
-        super().pop(idx)
         return super().pop(idx)
