@@ -1,8 +1,10 @@
 #!/usr/bin/python3
-import json
 """
 Module json imported to use json.loads function
 """
+
+
+import json
 
 
 def from_json_string(my_str):
