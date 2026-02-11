@@ -51,5 +51,8 @@ class CustomObject:
             with open(filename, "rb") as f:
                 student_loaded = pickle.load(f)
             return student_loaded
-        except(OSError, EOFError, pickel.UnpicklingError):
+        except(
+            OSError, EOFError, pickel.UnpicklingError, FileNotFoundError,
+            AttributeError, ImportError, ModuleNotFoundError
+        ):
             return None
