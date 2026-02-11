@@ -39,5 +39,6 @@ class Student:
         A dictionary key will be the public attribute name
     A dictionary value will be the value of the public attribute
         """
-        for key in json.items():
-            setattr(self, key, value)
+        for key, value in json.items():
+            if key in self.__dict__:
+                setattr(self, key, value)
