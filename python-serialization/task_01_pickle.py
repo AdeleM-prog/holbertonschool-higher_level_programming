@@ -50,6 +50,8 @@ class CustomObject:
         try:
             with open(filename, "rb") as f:
                 student_loaded = pickle.load(f)
+            if not isinstance(obj, cls):
+                return None
             return student_loaded
         except(
             OSError, EOFError, pickel.UnpicklingError, FileNotFoundError,
