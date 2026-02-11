@@ -38,8 +38,8 @@ class CustomObject:
         """
         try:
             with open(filename, "wb") as f:
-                return pickle.dump(self, f)
-        except(pickle.UnpicklingError, OSError):
+                pickle.dump(self, f)
+        except(pickle.PicklingError, OSError):
             return None
 
     @classmethod
@@ -57,7 +57,7 @@ class CustomObject:
             return student_loaded
 
         except(
-            OSError, EOFError, pickel.UnpicklingError, FileNotFoundError,
+            OSError, EOFError, pickle.UnpicklingError, FileNotFoundError,
             AttributeError, ImportError, ModuleNotFoundError
         ):
             return None
