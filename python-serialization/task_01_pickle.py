@@ -50,7 +50,7 @@ class CustomObject:
         try:
             with open(filename, "rb") as f:
                 student_loaded = pickle.load(f)
-            if not isinstance(obj, cls):
+            if not isinstance(student_loaded, cls):
                 return None
             return student_loaded
         except(
