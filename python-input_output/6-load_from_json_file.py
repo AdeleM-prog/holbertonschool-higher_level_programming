@@ -1,6 +1,8 @@
 #!/usr/bin/python3
 import json
-""" module json imported to use the function json.load """
+"""
+Module json imported to use the function json.load
+"""
 
 
 def load_from_json_file(filename):
