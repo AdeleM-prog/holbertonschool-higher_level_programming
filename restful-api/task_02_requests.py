@@ -1,9 +1,13 @@
 #!/usr/bin/python3
-
+"""modules imported"""
 import requests
 import csv
 
+
 def fetch_and_print_posts():
+    """
+    function that fetches all post from JSONPlaceholder
+    """
     r = requests.get("https://jsonplaceholder.typicode.com/posts")
     print("Status Code:", r.status_code)
     if r.status_code == 200:
@@ -11,7 +15,13 @@ def fetch_and_print_posts():
     for post in data:
         print(post["title"])
 
+
 def fetch_and_save_posts():
+    """
+    structure the data into a list of dictionaries, where each
+    dictionary represents a post with keys and values for id, title,
+    and body
+    """
     r = requests.get("https://jsonplaceholder.typicode.com/posts")
     print("Status Code:", r.status_code)
     if r.status_code == 200:
