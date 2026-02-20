@@ -1,11 +1,22 @@
 #!/usr/bin/python3
-
+"""
+import from http.server build an HTTP API
+import json to convert answers
+"""
 from http.server import BaseHTTPRequestHandler, HTTPServer
 import json
 
 
 class Handler(BaseHTTPRequestHandler):
+    """
+    class inherits from BaseHTTPRequestHandler
+    adapting handler behaviour
+    """
     def do_GET(self):
+        """
+        Running GET request and sending the right response
+        depending on the endpoint
+        """
         path = self.path
 
         if path == "/":
