@@ -10,36 +10,29 @@ class Handler(BaseHTTPRequestHandler):
 
         if path == "/":
             self.send_response(200)
-            self.send_header("Content-type", "text/plain; charset=utf-8")
+            self.send_header("Content-type", "text/plain")
             self.end_headers()
-            self.wfile.write(b"Hello, this is a simple API!")
+            self.wfile.write(b"Hello, this is a simple API!".encode())
 
         elif path == "/data":
             dataset = {"name": "John", "age": 30, "city": "New York"}
-            body = json.dumps(dataset).encode("utf-8")
+            body = json.dumps(dataset)
             self.send_response(200)
-            self.send_header("Content-type", "application/json; charset=utf-8")
+            self.send_header("Content-type", "application/json")
             self.end_headers()
-            self.wfile.write(body)
+            self.wfile.write(body.encode())
 
         elif path == "/status":
             self.send_response(200)
-            self.send_header("Content-type", "text/plain; charset=utf-8")
+            self.send_header("Content-type", "text/plain")
             self.end_headers()
-            self.wfile.write(b"OK")
+            self.wfile.write(b"OK".encode())
 
         else:
             self.send_response(404)
-            self.send_header("Content-type", "text/plain; charset=utf-8")
+            self.send_header("Content-type", "text/plain")
             self.end_headers()
-            self.wfile.write(b"Endpoint not found")
+            self.wfile.write(b"Endpoint not found".encode())
 
-
-if __name__ == "__main__":
-    server = HTTPServer(("localhost", 8000), Handler)
-    try:
-        server.serve_forever()
-    except KeyboardInterrupt:
-        pass
-    finally:
-        server.server_close()
+server = HTTPServer(("localhost", 8000), Handler)
+server.serve_forever()
