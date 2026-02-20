@@ -57,5 +57,5 @@ class MyHandler(BaseHTTPRequestHandler):
             self.wfile.write("Endpoint not found".encode())
 
 
-server = HTTPServer(("localhost", 8000), Handler)
+server = HTTPServer(("localhost", 8000), MyHandler)
 server.serve_forever()
