@@ -38,7 +38,7 @@ class MyHandler(BaseHTTPRequestHandler):
             self.send_header("Content-Type", "text/plain")
             self.end_headers()
             self.wfile.write("OK".encode())
-        
+
         elif path == "/info":
             info = {
                 "version": "1.0",
@@ -55,6 +55,7 @@ class MyHandler(BaseHTTPRequestHandler):
             self.send_header("Content-Type", "text/plain")
             self.end_headers()
             self.wfile.write("Endpoint not found".encode())
+
 
 server = HTTPServer(("localhost", 8000), Handler)
 server.serve_forever()
