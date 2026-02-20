@@ -7,7 +7,7 @@ from http.server import BaseHTTPRequestHandler, HTTPServer
 import json
 
 
-class Handler(BaseHTTPRequestHandler):
+class MyHandler(BaseHTTPRequestHandler):
     """
     class inherits from BaseHTTPRequestHandler
     adapting handler behaviour
@@ -38,6 +38,17 @@ class Handler(BaseHTTPRequestHandler):
             self.send_header("Content-type", "text/plain")
             self.end_headers()
             self.wfile.write(b"OK".encode())
+        
+        elif self.path == "/info":
+            info = {
+                "version": "1.0",
+                "description": "A simple API built with http.server"
+                }
+            info_json = json.dumps(info)
+            self.send_response(200)
+            self.send_header("Content-Type", "application/json")
+            self.end_headers()
+            self.wfile.write(info_json.encode())
 
         else:
             self.send_response(404)
