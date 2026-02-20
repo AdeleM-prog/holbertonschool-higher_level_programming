@@ -21,25 +21,25 @@ class MyHandler(BaseHTTPRequestHandler):
 
         if path == "/":
             self.send_response(200)
-            self.send_header("Content-type", "text/plain")
+            self.send_header("Content-Type", "text/plain")
             self.end_headers()
-            self.wfile.write(b"Hello, this is a simple API!".encode())
+            self.wfile.write("Hello, this is a simple API!".encode())
 
         elif path == "/data":
             dataset = {"name": "John", "age": 30, "city": "New York"}
             body = json.dumps(dataset)
             self.send_response(200)
-            self.send_header("Content-type", "application/json")
+            self.send_header("Content-Type", "application/json")
             self.end_headers()
             self.wfile.write(body.encode())
 
         elif path == "/status":
             self.send_response(200)
-            self.send_header("Content-type", "text/plain")
+            self.send_header("Content-Type", "text/plain")
             self.end_headers()
-            self.wfile.write(b"OK".encode())
+            self.wfile.write("OK".encode())
         
-        elif self.path == "/info":
+        elif path == "/info":
             info = {
                 "version": "1.0",
                 "description": "A simple API built with http.server"
@@ -52,9 +52,9 @@ class MyHandler(BaseHTTPRequestHandler):
 
         else:
             self.send_response(404)
-            self.send_header("Content-type", "text/plain")
+            self.send_header("Content-Type", "text/plain")
             self.end_headers()
-            self.wfile.write(b"Endpoint not found".encode())
+            self.wfile.write("Endpoint not found".encode())
 
 server = HTTPServer(("localhost", 8000), Handler)
 server.serve_forever()
