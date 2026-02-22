@@ -54,7 +54,7 @@ jwt = JWTManager(app)
 
 @jwt.unauthorized_loader
 def handle_missing_token(err_str):
-    return jsonify({"error": "Invalid token"}), 401
+    return jsonify({"error": "Missing or invalid token"}), 401
 
 
 @jwt.invalid_token_loader
@@ -62,7 +62,7 @@ def handle_invalid_token(err_str):
     return jsonify({"error": "Invalid token"}), 401
 
 
-@jwt.expired_toekn_loader
+@jwt.expired_token_loader
 def handle_expired_token(jwt_header, jwt_payload):
     return jsonify({"error": "Token has expired"}), 401
 
@@ -102,7 +102,7 @@ def login():
     return jsonify({"access_token": access_token}), 200
 
 
-@app.route("jwt-protected", methods=["GET"])
+@app.route("/jwt-protected", methods=["GET"])
 @jwt_required()
 def jwt_protected():
     return "JWT Auth: Access Granted"
