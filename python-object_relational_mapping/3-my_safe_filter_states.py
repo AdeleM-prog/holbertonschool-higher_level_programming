@@ -20,7 +20,7 @@ if __name__ == "__main__":
         "ORDER BY states.id ASC"
     )
 
-    cursor.execute(query, (state_name,))
+    cursor.execute(query, (argv[4],))
 
     rows = cursor.fetchall()
 
