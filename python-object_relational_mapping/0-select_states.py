@@ -20,7 +20,7 @@ if __name__ == "__main__":
 
     """cursor interpreting the command and executing the SQL query"""
     cur = db.cursor()
-    cur.execute("SELECT * FROM states ORDER BY states.id ASC;")
+    cur.execute("SELECT * FROM states ORDER BY id ASC")
     rows = cur.fetchall()
 
     """catching the lines from the result in order to print them"""
