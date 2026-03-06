@@ -14,7 +14,13 @@ if __name__ == "__main__":
     Dtbs = sys.argv[3]
 
     """connexion to the server"""
-    db = MySQLdb.connect(host='localhost', port=3306, user=User, password=Passwd, database=Dtbs)
+    db = MySQLdb.connect(
+        host='localhost',
+        port=3306,
+        user=User,
+        password=Passwd,
+        database=Dtbs
+        )
 
     """cursor interpreting the command and executing the SQL query"""
     cur = db.cursor()
