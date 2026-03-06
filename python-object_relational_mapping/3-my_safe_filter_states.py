@@ -11,16 +11,15 @@ if __name__ == "__main__":
         passwd=sys.argv[2],
         db=sys.argv[3],
     )
-    state_name = sys.argv[4]
+
     cursor = db.cursor()
-    query = (
+
+    cursor.execute(
         "SELECT * "
         "FROM states "
         "WHERE name = %s "
         "ORDER BY states.id ASC"
-    )
-
-    cursor.execute(query, (argv[4],))
+        )
 
     rows = cursor.fetchall()
 
