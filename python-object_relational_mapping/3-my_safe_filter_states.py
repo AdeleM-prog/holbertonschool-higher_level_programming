@@ -1,5 +1,10 @@
 #!/usr/bin/python3
 
+"""
+MySQL imported to connect to the server and exectute query
+sys imported to catch the arguments
+"""
+
 import MySQLdb
 import sys
 
