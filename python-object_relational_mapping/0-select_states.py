@@ -1,5 +1,6 @@
 #!/usr/bin/python3
-""" MySQL imported to connect to the server and execute the SQL query
+"""
+MySQL imported to connect to the server and execute the SQL query
 sys imported to catch the command arguments
 """
 import MySQLdb
@@ -10,7 +11,7 @@ if __name__ == "__main__":
 
     """connexion to the server"""
     db = MySQLdb.connect(
-        host='localhost',
+        host="localhost",
         port=3306,
         user=sys.argv[1],
         passwd=sys.argv[2],
