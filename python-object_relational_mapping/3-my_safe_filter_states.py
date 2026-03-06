@@ -14,10 +14,10 @@ if __name__ == "__main__":
     state_name = sys.argv[4]
     cursor = db.cursor()
     query = (
-    "SELECT * "
-    "FROM states "
-    "WHERE name = %s "
-    "ORDER BY states.id ASC"
+        "SELECT * "
+        "FROM states "
+        "WHERE name = %s "
+        "ORDER BY states.id ASC"
     )
 
     cursor.execute(query, (state_name,))
@@ -26,6 +26,6 @@ if __name__ == "__main__":
 
     for row in rows:
         print(row)
-    
+
     cursor.close()
     db.close()
