@@ -8,18 +8,13 @@ import sys
 """to manage file execution"""
 if __name__ == "__main__":
 
-    """storing arguments in variables"""
-    usr = sys.argv[1]
-    password = sys.argv[2]
-    db_name = sys.argv[3]
-
     """connexion to the server"""
     db = MySQLdb.connect(
         host='localhost',
         port=3306,
-        user=usr,
-        passwd=password,
-        db=db_name
+        user=sys.argv[1],
+        passwd=sys.argv[2],
+        db=sys.argv[3]
         )
 
     """cursor interpreting the command and executing the SQL query"""
