@@ -5,34 +5,27 @@ def generate_invitations(template, attendees):
         print("Template must be a string")
         return
     if not isinstance(attendees, list):
-        print("attendees must be a list")
+        print("attendees must be a list of dictionnaries")
         return
 
-    if len(template) <= 0:
+    if not template:
         print("Template is empty, no output files generated.")
         return
-    if attendees == []:
+    if not attendees:
         print("No data provided, no output files generated.")
         return
 
-    for attendee in attendees:
+    for index, attendee in enumerate(attendees, start=1):
         if not isinstance(attendee, dict):
             print("attendee must be a dict")
             return
-        name = attendee.get("name")
-        if name is None:
-            name = "N/A"
+        invitation = template
 
-        event_title = attendee.get("event_title")
-        if event_title is None:
-            event_title = "N/A"
-        
-        event_date = attendee.get("event_date")
-        if event_date is None:
-            event_date = "N/A"
-        
-        event_location = attendee.get("event_location")
-        if event_location is None:
-            event_location = "N/A"
-
-        
+        for key in ['name', 'event_title', 'event_date', 'event_location']:
+            value = attendee.get(key)
+            if value is None:
+                value = "N/A"
+            invitation = invitation.replace(f"{{{key}}}", str(value))
+        filename = f"output_{index}.txt"
+        with open(filename, "w") as f:
+            f.write(invitation)
